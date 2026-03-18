@@ -1,0 +1,48 @@
+models:
+  - id: stepfun-step-3_5-flash
+    type: llm
+    provider: stepfun
+    key_env: STEPFUN_API_KEY
+    pricing: free
+    quota: unlimited
+    priority: 1
+    tags: [chat, general]
+
+  - id: cerebras-inference
+    type: llm
+    provider: cerebras
+    key_env: CEREBRAS_API_KEY
+    pricing: free
+    quota: 1000000
+    priority: 1
+    tags: [long, summary]
+
+  - id: free-qwq-32b
+    type: llm
+    provider: free-qwq
+    key_env: FREE_QWQ_API_KEY
+    pricing: free
+    quota: unlimited
+    priority: 2
+    tags: [code, tech]
+
+  - id: flux-1-dev
+    type: image
+    provider: local
+    endpoint: http://localhost:5000/generate
+    pricing: free
+    quota: unlimited
+    priority: 1
+    tags: [image, mascot, banner]
+
+routing:
+  chat_default:
+    - stepfun-step-3_5-flash
+    - cerebras-inference
+
+  tech_answer:
+    - free-qwq-32b
+    - cerebras-inference
+
+  image_default:
+    - flux-1-dev

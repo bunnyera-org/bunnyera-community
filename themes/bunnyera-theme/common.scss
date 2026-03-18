@@ -1,0 +1,46 @@
+:root {
+  --be-color-primary: #00E5FF;
+  --be-color-primary-dark: #00B2CC;
+  --be-color-bg: #050814;
+  --be-color-surface: #0A0F1F;
+  --be-color-accent: #F7CFEA;
+  --be-color-text: #FFFFFF;
+  --be-color-text-secondary: #D0D8E8;
+  --be-color-border: #1C2435;
+  --be-radius-lg: 16px;
+  --be-radius-md: 10px;
+  --be-radius-sm: 6px;
+  --be-shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+}
+
+body {
+  background: radial-gradient(circle at top, #10152A 0, #050814 55%, #02030A 100%);
+  color: var(--be-color-text);
+}
+
+.d-header {
+  background: linear-gradient(90deg, #050814 0, #07182A 100%);
+  border-bottom: 1px solid rgba(0, 229, 255, 0.25);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+}
+
+.nav-pills > li > a {
+  border-radius: 999px;
+  padding: 6px 14px;
+  color: var(--be-color-text-secondary);
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li > a:hover {
+  background: rgba(0, 229, 255, 0.12);
+  color: var(--be-color-primary);
+}
+
+.btn-primary {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #00E5FF, #F7CFEA);
+  border: none;
+  color: #050814;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0, 229, 255, 0.35);
+}

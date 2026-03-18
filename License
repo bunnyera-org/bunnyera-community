@@ -1,0 +1,45 @@
+
+---
+
+# ✅ 2. `docker/app.yml`（可直接部署）
+
+```yaml
+templates:
+  - "templates/postgres.template.yml"
+  - "templates/redis.template.yml"
+  - "templates/web.template.yml"
+
+expose:
+  - "80:80"
+  - "443:443"
+
+params:
+  db_default_text_search_config: "pg_catalog.english"
+
+env:
+  DISCOURSE_HOSTNAME: community.bunnyera.com
+  DISCOURSE_DEVELOPER_EMAILS: 'admin@bunnyera.com'
+  DISCOURSE_SMTP_ADDRESS: smtp.office365.com
+  DISCOURSE_SMTP_PORT: 587
+  DISCOURSE_SMTP_USER_NAME: admin@bunnyera.com
+  DISCOURSE_SMTP_PASSWORD: "YOUR_SMTP_PASSWORD"
+  DISCOURSE_SMTP_ENABLE_START_TLS: true
+
+volumes:
+  - volume:
+      host: /var/discourse/shared/standalone
+      guest: /shared
+  - volume:
+      host: /var/discourse/shared/standalone/log/var-log
+      guest: /var/log
+
+hooks:
+  after_code:
+    - exec:
+        cd: $home/plugins
+        cmd:
+          - git clone https://github.com/bunnyera-org/bunnyera-agent-bot.git
+          - git clone https://github.com/bunnyera-org/bunnyera-theme.git
+
+run:
+  - exec: echo "BunnyEra Community is starting..."

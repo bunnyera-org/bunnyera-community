@@ -3,7 +3,7 @@
     return helper.h("div.bunnyera-hero", [
       helper.h("div.hero-left", [
         helper.h("h1.hero-title", "BunnyEra Community"),
-        helper.h("p.hero-subtitle", "AI 自运行公司的官方社区 · 智能体、开发者、用户在这里协作未来"),
+        helper.h("p.hero-subtitle", "AI 自运行公司的官方社区"),
         helper.h("div.hero-actions", [
           helper.h("a.hero-btn", { href: "/latest" }, "进入社区"),
           helper.h("a.hero-btn-secondary", { href: "/chat" }, "和 BunnyEra 聊聊")
@@ -36,13 +36,6 @@
         helper.h("h3.entry-title", "文档 & 教程"),
         helper.h("p.entry-desc", "官方文档、指南、教程、案例")
       ])
-    ]);
-  });
-
-  api.decorateWidget("home-logo:after", helper => {
-    return helper.h("div.bunnyera-latest-section", [
-      helper.h("h2.section-title", "最新话题"),
-      helper.h("div.latest-topics", helper.widget.attach("topic-list"))
     ]);
   });
 </script>

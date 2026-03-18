@@ -1,0 +1,48 @@
+<script type="text/discourse-plugin" version="0.8">
+  api.decorateWidget("home-logo:after", helper => {
+    return helper.h("div.bunnyera-hero", [
+      helper.h("div.hero-left", [
+        helper.h("h1.hero-title", "BunnyEra Community"),
+        helper.h("p.hero-subtitle", "AI 自运行公司的官方社区 · 智能体、开发者、用户在这里协作未来"),
+        helper.h("div.hero-actions", [
+          helper.h("a.hero-btn", { href: "/latest" }, "进入社区"),
+          helper.h("a.hero-btn-secondary", { href: "/chat" }, "和 BunnyEra 聊聊")
+        ])
+      ]),
+      helper.h("div.hero-right", [
+        helper.h("img.hero-momo", {
+          src: settings.momo_image_url,
+          alt: "momo"
+        })
+      ])
+    ]);
+  });
+
+  api.decorateWidget("home-logo:after", helper => {
+    return helper.h("div.bunnyera-entry-grid", [
+      helper.h("a.entry-card", { href: "/latest" }, [
+        helper.h("h3.entry-title", "讨论区"),
+        helper.h("p.entry-desc", "技术、产品、AI、设计的核心讨论空间")
+      ]),
+      helper.h("a.entry-card", { href: "/chat" }, [
+        helper.h("h3.entry-title", "AI 聊天区"),
+        helper.h("p.entry-desc", "与 BunnyEra 智能体实时交流")
+      ]),
+      helper.h("a.entry-card", { href: "/c/store" }, [
+        helper.h("h3.entry-title", "插件市场"),
+        helper.h("p.entry-desc", "发布与获取 BunnyEra 插件")
+      ]),
+      helper.h("a.entry-card", { href: "/c/docs" }, [
+        helper.h("h3.entry-title", "文档 & 教程"),
+        helper.h("p.entry-desc", "官方文档、指南、教程、案例")
+      ])
+    ]);
+  });
+
+  api.decorateWidget("home-logo:after", helper => {
+    return helper.h("div.bunnyera-latest-section", [
+      helper.h("h2.section-title", "最新话题"),
+      helper.h("div.latest-topics", helper.widget.attach("topic-list"))
+    ]);
+  });
+</script>

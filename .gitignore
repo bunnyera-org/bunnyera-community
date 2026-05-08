@@ -1,0 +1,27 @@
+.DS_Store
+Thumbs.db
+.env
+.env.local
+node_modules/
+dist/
+build/
+logs/
+
+# Do not commit private data
+private/
+customer-data/
+credentials/
+secrets/
+
+# Do not commit generated cache
+.cache/
+.tmp/
+
+# Do not commit large model files
+*.gguf
+*.safetensors
+*.bin
+*.onnx
+*.pt
+*.pth
+*.ckpt
